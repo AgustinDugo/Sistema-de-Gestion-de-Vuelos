@@ -11,14 +11,21 @@ def inicializar_matriz(cantidad_filas, cantidad_columnas = 3):
 def cargar_vuelos(matriz):
     for i in range(len(matriz)):
         for j in range(len(matriz[i])):
-            matriz[i][j] = int(input("Agregar valor: "))
+            matriz[i][j] = input("Agregar valor: ")
 
+
+def mostrar_vuelos(matriz):
+    for i in range(len(matriz)):
+        for j in range(len(matriz[i])):
+            print(matriz[i][j])
+        print()
+        
 def buscar_vuelo_por_codigo(matriz, numero_buscado):
     posiciones = []
     for i in range(len(matriz)):
         for j in range(len(matriz[i])):
             if numero_buscado == matriz[i][j]:
-                posiciones += [[i, j]]
+                posiciones += [matriz[i][j]]
     
     if posiciones == []:
         return "El numero no se encuentr en la matriz"
