@@ -1,4 +1,12 @@
 from funciones.menu import menu
+from funciones.operaciones import inicializar_matriz
+from funciones.operaciones import cargar_vuelos
+from funciones.operaciones import buscar_vuelo_por_codigo
+from funciones.operaciones import mostrar_vuelos
+
+
+
+
 """
 Ejercicio 4
 ✈️ Sistema de Gestión de Vuelos – Aerolínea “SkyWings"
@@ -69,7 +77,22 @@ vuelos = [None] * TAM_MAX
 
 vuelos_cargados = 0
 
+opcion = menu()
 
+while opcion != 6:
+    match opcion:
+        case 1:
+            cantidad_de_vuelos = int(input("Ingrese la cantidad de vuelos que desea cargar: "))
+            vuelos = inicializar_matriz(cantidad_de_vuelos)
+            cargar_vuelos(vuelos)
+            print(vuelos)
+        case 2:
+            codigo = input("Indique el codigo de su vuelo: ")
+            vuelo_buscado = buscar_vuelo_por_codigo(vuelos, codigo )
+            mostrar_vuelos(vuelo_buscado)
 
+            
 
+    
+    opcion = menu()
 
